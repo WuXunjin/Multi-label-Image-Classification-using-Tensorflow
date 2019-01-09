@@ -301,7 +301,7 @@ def parse_args():
     parser = argparse.ArgumentParser(
         description='Train a classifier in tensorflow!')
     parser.add_argument(
-        'data_dir', type=str, default='data/VOC2007',
+        '-data_dir', type=str, default='data/VOC2007',
         help='Path to PASCAL data storage')
     if len(sys.argv) == 1:
         parser.print_help()
@@ -381,7 +381,7 @@ def load_pascal(data_dir, split='train'):
     for j in img:
     
         im = Image.open(data_dir+sub_dir2+ j +'.jpg')
-        im = im.resize((256, 256), Image.ANTIALIAS)
+        im = im.resize((224, 224), Image.ANTIALIAS)
         arr.append(np.float32(im))
 
     image_ar = np.float32(arr)
